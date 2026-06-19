@@ -8,7 +8,7 @@
     "build": "anchor build"
   },
   "dependencies": {
-    "@coral-xyz/anchor": "^0.31.0",
+    "@coral-xyz/anchor": "^0.31.1",
     "@solana/web3.js": "^1.87.6"
   },
   "devDependencies": {
