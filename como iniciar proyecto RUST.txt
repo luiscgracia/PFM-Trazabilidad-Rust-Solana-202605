@@ -1,0 +1,93 @@
+DESPLEGAR EL CONTRATO EN SOLANA (LogiChain)
+
+Terminal 1 — Validador Solana
+solana-test-validator --reset
+
+Terminal 2 — Compilar, desplegar e inicializar
+# Compilar el programa Rust
+cargo build-sbf --manifest-path programs/logistics_traceability/Cargo.toml
+# Desplegar en localnet
+anchor deploy --provider.cluster localnet
+# Inicializar el programa, registrar 9 actores y cargar 10 envíos de demostración
+npx ts-node scripts/init.ts && npx ts-node scripts/demo-data.ts
+
+Terminal 3 — Frontend
+cd app && yarn dev
+
+=======================================================================================================
+
+GRABAR VIDEO PRESENTACION PROYECTO
+
+Terminal 1:
+solana-test-validator --slots-per-epoch 32 --reset
+
+Terminal 2:
+cargo build-sbf --manifest-path programs/logistics_traceability/Cargo.toml
+anchor deploy --provider.cluster localnet
+npx ts-node scripts/init.ts && npx ts-node scripts/demo-data.ts
+cd app && yarn dev
+
+Terminal 3:
+# Paso 1 — Lanzar Chrome con CDP: (el Chrome se demora en aparecer)
+pkill -f chrome && sleep 2
+rm -rf /tmp/chrome-real
+cp -r ~/.config/google-chrome /tmp/chrome-real
+google-chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-real --no-first-run http://localhost:3000 &
+sleep 5
+# Verificar CDP:
+curl -s http://localhost:9222/json/version | python3 -c "import json,sys; print(json.load(sys.stdin)['Browser'])"
+
+Paso 2 — En Chrome:
+Conectar Backpack con cuenta SENDER 1 (...75yP)
+
+Paso 3 — Abrir OBS:
+Iniciar OBS Studio y configurar para Capturar Ventana Google Chrome
+Ctrl-Alt-G ---> inicia la grabación
+Ctrl-Alt-B ---> detiene la grabación
+
+Terminal 4:
+# ejecutar script de demostracion:
+cd app && npx ts-node tests/demo.ts
+
+=======================================================================================================
+
+SENDER 1    9NahCw2mCeyGfByyW7SJUjtLTkkJhxt7R6BnKhYD75yP
+CARRIER 1   6wBDWTd5oSQRfVeZKT63RaG4cAmbYvrM2Wcsu4Cv85gv
+HUB 1       E46WK8aKHonmhYJeFa5L9n9TTMtEUgT3yJttDwwr98Fy
+RECIPIENT 1 H29kiRNHrVFtdWm84AXsuyZUiLYNsX5VqmJnfvjTFetC
+SENDER 2    FNgwZejMCV6NdkjRxUPmhpkY1aGoRUR7fv43dk2PmJXa
+CARRIER 2   9QTttwTjydFPWsi1mQ3fSrHXJAV6r4T7XvyFX2iw9GD7
+HUB 2       4JHeGQrFqL8APX45EnViGTd3sDY8gGmi89dcdFxbrgGc
+RECIPIENT 2 4g6GasnTriRGwAn99hZivVyXZHmfPfL8RvPyeP1SAsNc
+INSPECTOR 1 88qjGshdQuyQgdmTwc7L97V5JkTaErj5FFhe44Ari5T9
+
+solana airdrop 500 9NahCw2mCeyGfByyW7SJUjtLTkkJhxt7R6BnKhYD75yP --url localhost
+solana airdrop 500 6wBDWTd5oSQRfVeZKT63RaG4cAmbYvrM2Wcsu4Cv85gv --url localhost
+solana airdrop 500 E46WK8aKHonmhYJeFa5L9n9TTMtEUgT3yJttDwwr98Fy --url localhost
+solana airdrop 500 H29kiRNHrVFtdWm84AXsuyZUiLYNsX5VqmJnfvjTFetC --url localhost
+solana airdrop 500 FNgwZejMCV6NdkjRxUPmhpkY1aGoRUR7fv43dk2PmJXa --url localhost
+solana airdrop 500 9QTttwTjydFPWsi1mQ3fSrHXJAV6r4T7XvyFX2iw9GD7 --url localhost
+solana airdrop 500 4JHeGQrFqL8APX45EnViGTd3sDY8gGmi89dcdFxbrgGc --url localhost
+solana airdrop 500 4g6GasnTriRGwAn99hZivVyXZHmfPfL8RvPyeP1SAsNc --url localhost
+solana airdrop 500 88qjGshdQuyQgdmTwc7L97V5JkTaErj5FFhe44Ari5T9 --url localhost
+
+solana balance 9NahCw2mCeyGfByyW7SJUjtLTkkJhxt7R6BnKhYD75yP --url localhost
+solana balance 6wBDWTd5oSQRfVeZKT63RaG4cAmbYvrM2Wcsu4Cv85gv --url localhost
+solana balance E46WK8aKHonmhYJeFa5L9n9TTMtEUgT3yJttDwwr98Fy --url localhost
+solana balance H29kiRNHrVFtdWm84AXsuyZUiLYNsX5VqmJnfvjTFetC --url localhost
+solana balance FNgwZejMCV6NdkjRxUPmhpkY1aGoRUR7fv43dk2PmJXa --url localhost
+solana balance 9QTttwTjydFPWsi1mQ3fSrHXJAV6r4T7XvyFX2iw9GD7 --url localhost
+solana balance 4JHeGQrFqL8APX45EnViGTd3sDY8gGmi89dcdFxbrgGc --url localhost
+solana balance 4g6GasnTriRGwAn99hZivVyXZHmfPfL8RvPyeP1SAsNc --url localhost
+solana balance 88qjGshdQuyQgdmTwc7L97V5JkTaErj5FFhe44Ari5T9 --url localhost
+
+for addr in 9NahCw2mCeyGfByyW7SJUjtLTkkJhxt7R6BnKhYD75yP 6wBDWTd5oSQRfVeZKT63RaG4cAmbYvrM2Wcsu4Cv85gv E46WK8aKHonmhYJeFa5L9n9TTMtEUgT3yJttDwwr98Fy H29kiRNHrVFtdWm84AXsuyZUiLYNsX5VqmJnfvjTFetC FNgwZejMCV6NdkjRxUPmhpkY1aGoRUR7fv43dk2PmJXa 9QTttwTjydFPWsi1mQ3fSrHXJAV6r4T7XvyFX2iw9GD7 4JHeGQrFqL8APX45EnViGTd3sDY8gGmi89dcdFxbrgGc 4g6GasnTriRGwAn99hZivVyXZHmfPfL8RvPyeP1SAsNc 88qjGshdQuyQgdmTwc7L97V5JkTaErj5FFhe44Ari5T9; do
+  solana airdrop 10 $addr --url localhost
+done
+
+solana transfer 6wBDWTd5oSQRfVeZKT63RaG4cAmbYvrM2Wcsu4Cv85gv 2 --url localhost --allow-unfunded-recipient
+
+# hacer airdrop al payer del programa/contrato
+solana airdrop 10 --url localhost
+
+
