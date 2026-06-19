@@ -1,0 +1,10 @@
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/debug/deps/cargo_toml-6f484dbd6b988659.d: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/cargo_toml.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/afs.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/error.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/inheritable.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/debug/deps/libcargo_toml-6f484dbd6b988659.rlib: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/cargo_toml.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/afs.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/error.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/inheritable.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/debug/deps/libcargo_toml-6f484dbd6b988659.rmeta: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/cargo_toml.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/afs.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/error.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/inheritable.rs
+
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/cargo_toml.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/afs.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/error.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo_toml-0.19.2/src/inheritable.rs:

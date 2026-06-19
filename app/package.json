@@ -1,0 +1,40 @@
+{
+  "name": "logistics-traceability-app",
+  "version": "0.1.0",
+  "description": "TFM - Frontend de Trazabilidad Logística en Solana con Backpack Wallet",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "0.31.0",
+    "@coral-xyz/borsh": "^0.32.1",
+    "@solana/wallet-adapter-backpack": "^0.1.14",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.35",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
+    "@solana/web3.js": "^1.87.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "dayjs": "^1.11.10",
+    "next": "14.2.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "recharts": "^2.10.3",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.0",
+    "playwright": "^1.60.0",
+    "postcss": "^8",
+    "tailwindcss": "^3"
+  }
+}

@@ -1,0 +1,9 @@
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/solana_loader_v3_interface-1f3afba82946d884.d: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/instruction.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/state.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/libsolana_loader_v3_interface-1f3afba82946d884.rlib: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/instruction.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/state.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/libsolana_loader_v3_interface-1f3afba82946d884.rmeta: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/instruction.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/state.rs
+
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/lib.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/instruction.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-loader-v3-interface-5.0.0/src/state.rs:

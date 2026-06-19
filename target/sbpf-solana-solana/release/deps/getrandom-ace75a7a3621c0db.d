@@ -1,0 +1,10 @@
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/getrandom-ace75a7a3621c0db.d: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/error.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/util.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/custom.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/libgetrandom-ace75a7a3621c0db.rlib: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/error.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/util.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/custom.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/libgetrandom-ace75a7a3621c0db.rmeta: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/error.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/util.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/custom.rs
+
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/lib.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/error.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/util.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.17/src/custom.rs:

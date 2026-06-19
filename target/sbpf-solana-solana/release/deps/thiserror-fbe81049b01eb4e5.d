@@ -1,0 +1,10 @@
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/thiserror-fbe81049b01eb4e5.d: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/aserror.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/display.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/provide.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/libthiserror-fbe81049b01eb4e5.rlib: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/aserror.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/display.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/provide.rs
+
+/home/luiscgraciap/Documentos/GitLab/PFM-Rust-Solana-LCGP-202605/target/sbpf-solana-solana/release/deps/libthiserror-fbe81049b01eb4e5.rmeta: /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/lib.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/aserror.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/display.rs /home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/provide.rs
+
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/lib.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/aserror.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/display.rs:
+/home/luiscgraciap/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-1.0.69/src/provide.rs:

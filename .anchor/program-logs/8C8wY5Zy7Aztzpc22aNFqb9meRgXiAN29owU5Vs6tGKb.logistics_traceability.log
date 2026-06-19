@@ -1,0 +1,177 @@
+Streaming transaction logs mentioning 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb. Confirmed commitment
+Transaction executed in slot 153:
+  Signature: P42vLgwZav5EhGLJ4QEKanC4SkkdX3jihWWTsvaPiPqMRVsG7njDxu5kCH4VMnTGDSJBnzVs61g1rpVtGbWKB7d
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: Initialize
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program log: 🚀 Sistema de Trazabilidad Logística inicializado
+    Program log: Authority: CuNJKsqXAftbsmLkLDv1gxDSeEiaBaMP3ZMCWHiAFxqk
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 12005 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 154:
+  Signature: 2DAxpH995gnoZ3UqmWHcVhVXHShW3KzaANtZLjiR8ELJ3Uoj78KzBTA3su9t5ecsJDF5euVFQmb8HuNicW3NzFJ5
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RegisterActor
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: wNBp197wRn5cGGAjTqTnwmvPvmiGVWgndOTFZ+VoF7MtKNgk87iE2g4AAABGYXJtYVRlY2ggUy5BLgYAAABTZW5kZXIJAAAATWlhbWksIEZM1IkEagAAAAA=
+    Program log: ✅ Actor registrado: FarmaTech S.A. como Sender
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 9642 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 154:
+  Signature: 3JtFT6A8mmP4uD27YT5owokjEXdSWhqAWo5nxqWwJUd7qK4hR4kzkH42JxaB9jodEVdkFUiGDE5NPijn8G9Qfu1M
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RegisterActor
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: wNBp197wRn7fpm5Gfsy0fp/0m2CaKukQvwWf8KJoKIo/VAq7nPBz8xAAAABUcmFuc0xvZyBFeHByZXNzBwAAAENhcnJpZXIMAAAATWlhbWkgSHViICMx1IkEagAAAAA=
+    Program log: ✅ Actor registrado: TransLog Express como Carrier
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 9518 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 155:
+  Signature: 3JtFT6A8mmP4uD27YT5owokjEXdSWhqAWo5nxqWwJUd7qK4hR4kzkH42JxaB9jodEVdkFUiGDE5NPijn8G9Qfu1M
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RegisterActor
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: wNBp197wRn7fpm5Gfsy0fp/0m2CaKukQvwWf8KJoKIo/VAq7nPBz8xAAAABUcmFuc0xvZyBFeHByZXNzBwAAAENhcnJpZXIMAAAATWlhbWkgSHViICMx1YkEagAAAAA=
+    Program log: ✅ Actor registrado: TransLog Express como Carrier
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 9518 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 156:
+  Signature: 3yG7Z3iwmnL1nvHTEfbjboq2jv3sE7mve5WZRgSUM27y4ac4Qm1eX55Hh8zg5KTSfdEHvaqDxcCgaoeY21tEXshH
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RegisterActor
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: wNBp197wRn5X+AshUwrME4SF/QXYo2EgDGyCdD/+DcTd1fkfxOWnpxMAAABIdWIgQm9nb3TDoSBDZW50cmFsAwAAAEh1YhEAAABCb2dvdMOhLCBDb2xvbWJpYdWJBGoAAAAA
+    Program log: ✅ Actor registrado: Hub Bogotá Central como Hub
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 11325 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 156:
+  Signature: 4teNBsPfhbJ3VrjctM4GxJpWMs6np5eAva39wwxvDkszsKpFMN7h4VSeYSSDQWNrEEyPH1j9VaXp25XF8awJ4nam
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RegisterActor
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: wNBp197wRn5u9ZpyEI422zpDJpFoUOe63653J4ZfgG0zM0MskztEkhgAAABIb3NwaXRhbCBDZW50cmFsIEJvZ290w6EJAAAAUmVjaXBpZW50EQAAAEJvZ290w6EsIENvbG9tYmlh1YkEagAAAAA=
+    Program log: ✅ Actor registrado: Hospital Central Bogotá como Recipient
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 11300 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 157:
+  Signature: 4teNBsPfhbJ3VrjctM4GxJpWMs6np5eAva39wwxvDkszsKpFMN7h4VSeYSSDQWNrEEyPH1j9VaXp25XF8awJ4nam
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RegisterActor
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: wNBp197wRn5u9ZpyEI422zpDJpFoUOe63653J4ZfgG0zM0MskztEkhgAAABIb3NwaXRhbCBDZW50cmFsIEJvZ290w6EJAAAAUmVjaXBpZW50EQAAAEJvZ290w6EsIENvbG9tYmlh1okEagAAAAA=
+    Program log: ✅ Actor registrado: Hospital Central Bogotá como Recipient
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 11300 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 157:
+  Signature: 2x4PPKUea8AX7PqpKaySDdP3EHdgUv8fHu1rHjEF5c1tgHjQtF8EYqsJj18FXybAvFWyDhD8QW6ZNzkEu5ufYGmz
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: CreateShipment
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: 0O7Ku26l0FkBAAAAAAAAAFwYYCNOpOfCa8++aIZVaCd05MVn5WgXsy0o2CTzuITabvWachCONts6QyaRaFDnut+udyeGX4BtMzNDLJM7RJIQAAAAVmFjdW5hcyBDT1ZJRC0xOR8AAABMYWJvcmF0b3JpbyBGYXJtYVRlY2gsIE1pYW1pIEZMIgAAAEhvc3BpdGFsIENlbnRyYWwsIEJvZ290w6EgQ29sb21iaWEB1okEagAAAAA=
+    Program log: 📦 Envío #1 creado: Laboratorio FarmaTech, Miami FL → Hospital Central, Bogotá Colombia
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 17786 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 158:
+  Signature: 2x4PPKUea8AX7PqpKaySDdP3EHdgUv8fHu1rHjEF5c1tgHjQtF8EYqsJj18FXybAvFWyDhD8QW6ZNzkEu5ufYGmz
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: CreateShipment
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: 0O7Ku26l0FkBAAAAAAAAAFwYYCNOpOfCa8++aIZVaCd05MVn5WgXsy0o2CTzuITabvWachCONts6QyaRaFDnut+udyeGX4BtMzNDLJM7RJIQAAAAVmFjdW5hcyBDT1ZJRC0xOR8AAABMYWJvcmF0b3JpbyBGYXJtYVRlY2gsIE1pYW1pIEZMIgAAAEhvc3BpdGFsIENlbnRyYWwsIEJvZ290w6EgQ29sb21iaWEB1okEagAAAAA=
+    Program log: 📦 Envío #1 creado: Laboratorio FarmaTech, Miami FL → Hospital Central, Bogotá Colombia
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 17786 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 158:
+  Signature: 2QbvzuS9iJ1D9MyEvu5okDwW9hcJixqD868eACffFCvuoTnjp8mfjsPJT4EVw8wnSckiHHfQfNeJnLuwhdDoi7Qq
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RecordCheckpoint
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: ncBbxJUhL/cBAAAAAAAAAAEAAAAAAAAAIAAAAE1pYW1pIFBvcnQgQXV0aG9yaXR5LCBUZXJtaW5hbCAzBgAAAFBpY2t1cN+mbkZ+zLR+n/SbYJoq6RC/BZ/womgoij9UCruc8HPzHgAt1okEagAAAAA=
+    Program log: 📍 Checkpoint #1 registrado en envío #1: Pickup @ Miami Port Authority, Terminal 3
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 19551 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 159:
+  Signature: 2QbvzuS9iJ1D9MyEvu5okDwW9hcJixqD868eACffFCvuoTnjp8mfjsPJT4EVw8wnSckiHHfQfNeJnLuwhdDoi7Qq
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: RecordCheckpoint
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: ncBbxJUhL/cBAAAAAAAAAAEAAAAAAAAAIAAAAE1pYW1pIFBvcnQgQXV0aG9yaXR5LCBUZXJtaW5hbCAzBgAAAFBpY2t1cN+mbkZ+zLR+n/SbYJoq6RC/BZ/womgoij9UCruc8HPzHgAt14kEagAAAAA=
+    Program log: 📍 Checkpoint #1 registrado en envío #1: Pickup @ Miami Port Authority, Terminal 3
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 19551 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 159:
+  Signature: oFBwh8YyNE4xopLqdsviQtgVDQtkS6eMh7tBso9re1V58KicmqvAoQgz8L6SFjbkfK3xAYM6q728Stbnr4SESQL
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: UpdateShipmentStatus
+    Program data: ngD3o1tOBVsBAAAAAAAAAAkAAABJblRyYW5zaXTfpm5Gfsy0fp/0m2CaKukQvwWf8KJoKIo/VAq7nPBz89eJBGoAAAAA
+    Program log: 🔄 Estado del envío #1 actualizado a InTransit
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 8994 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 160:
+  Signature: oFBwh8YyNE4xopLqdsviQtgVDQtkS6eMh7tBso9re1V58KicmqvAoQgz8L6SFjbkfK3xAYM6q728Stbnr4SESQL
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: UpdateShipmentStatus
+    Program data: ngD3o1tOBVsBAAAAAAAAAAkAAABJblRyYW5zaXTfpm5Gfsy0fp/0m2CaKukQvwWf8KJoKIo/VAq7nPBz89eJBGoAAAAA
+    Program log: 🔄 Estado del envío #1 actualizado a InTransit
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 8994 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 160:
+  Signature: 4NveV2JMgZTQetkfozeph99RgZNVTtLrkcLRUkDUosu5H7BHc4q2vEhW8TdTBe6Wt7B1y9RvTqey3irp9nWwM9Js
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: ReportIncident
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: ab86wTJWPWcBAAAAAAAAAAEAAAAAAAAADQAAAFRlbXBWaW9sYXRpb27fpm5Gfsy0fp/0m2CaKukQvwWf8KJoKIo/VAq7nPBz8z0AAABUZW1wZXJhdHVyYSBzdWJpw7MgYSA4wrBDIGR1cmFudGUgMTUgbWludXRvcyBlbiBlbCBhZXJvcHVlcnRv14kEagAAAAA=
+    Program log: 🚨 Incidencia #1 reportada en envío #1: TempViolation
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 23916 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success
+Transaction executed in slot 161:
+  Signature: 4NveV2JMgZTQetkfozeph99RgZNVTtLrkcLRUkDUosu5H7BHc4q2vEhW8TdTBe6Wt7B1y9RvTqey3irp9nWwM9Js
+  Status: Ok
+  Log Messages:
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb invoke [1]
+    Program log: Instruction: ReportIncident
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program data: ab86wTJWPWcBAAAAAAAAAAEAAAAAAAAADQAAAFRlbXBWaW9sYXRpb27fpm5Gfsy0fp/0m2CaKukQvwWf8KJoKIo/VAq7nPBz8z0AAABUZW1wZXJhdHVyYSBzdWJpw7MgYSA4wrBDIGR1cmFudGUgMTUgbWludXRvcyBlbiBlbCBhZXJvcHVlcnRv14kEagAAAAA=
+    Program log: 🚨 Incidencia #1 reportada en envío #1: TempViolation
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb consumed 23916 of 200000 compute units
+    Program 8C8wY5Zy7Aztzpc22aNFqb9meRgXiAN29owU5Vs6tGKb success

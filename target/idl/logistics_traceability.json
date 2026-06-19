@@ -1,0 +1,2249 @@
+{
+  "address": "88jtu9fMGP9VMtSiXCvva4xy6W3i9CufnYFXMrvgKtRA",
+  "metadata": {
+    "name": "logistics_traceability",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "TFM - Plataforma de Trazabilidad Logistica en Solana"
+  },
+  "docs": [
+    "El módulo #[program] contiene todas las instrucciones públicas",
+    "que los clientes pueden invocar.",
+    "",
+    "Anchor genera automáticamente:",
+    "1. El discriminador de instrucción (hash del nombre)",
+    "2. La deserialización de parámetros",
+    "3. La validación de cuentas (desde las structs Accounts)",
+    "4. El manejo de errores"
+  ],
+  "instructions": [
+    {
+      "name": "cancel_shipment",
+      "docs": [
+        "Cancela un envío en estado Created."
+      ],
+      "discriminator": [
+        218,
+        193,
+        79,
+        176,
+        231,
+        134,
+        184,
+        74
+      ],
+      "accounts": [
+        {
+          "name": "shipment",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  105,
+                  112,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "shipment_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender_actor",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "sender_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender_wallet",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "shipment_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "confirm_delivery",
+      "docs": [
+        "El destinatario confirma la recepción del envío."
+      ],
+      "discriminator": [
+        11,
+        109,
+        227,
+        53,
+        179,
+        190,
+        88,
+        155
+      ],
+      "accounts": [
+        {
+          "name": "shipment",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  105,
+                  112,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "shipment_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "recipient_actor",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "recipient_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "recipient_wallet",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "shipment_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_shipment",
+      "docs": [
+        "Crea un nuevo envío. Solo Senders pueden hacerlo."
+      ],
+      "discriminator": [
+        67,
+        64,
+        17,
+        114,
+        30,
+        143,
+        249,
+        247
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "docs": [
+            "Configuración global. Necesitamos actualizarla (mut) para",
+            "incrementar los contadores."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "shipment",
+          "docs": [
+            "El nuevo envío que se va a crear"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  105,
+                  112,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "shipment_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender_actor",
+          "docs": [
+            "La cuenta Actor del remitente (ya debe existir)",
+            "",
+            "Constraint: Verificamos que el actor esté activo y sea Sender",
+            "Esta es una de las partes más importantes de Anchor:",
+            "las validaciones en constraints evitan llamadas inválidas."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "actor_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor_wallet"
+        },
+        {
+          "name": "sender_wallet",
+          "docs": [
+            "La wallet del remitente. Debe firmar y pagar el rent."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "shipment_id",
+          "type": "u64"
+        },
+        {
+          "name": "recipient",
+          "type": "pubkey"
+        },
+        {
+          "name": "product",
+          "type": "string"
+        },
+        {
+          "name": "origin",
+          "type": "string"
+        },
+        {
+          "name": "destination",
+          "type": "string"
+        },
+        {
+          "name": "requires_cold_chain",
+          "type": "bool"
+        },
+        {
+          "name": "max_temperature",
+          "type": "i16"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "docs": [
+        "Inicializa el sistema. Solo se llama UNA VEZ.",
+        "Crea la cuenta de configuración global del programa."
+      ],
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "docs": [
+            "La cuenta de configuración global del programa.",
+            "",
+            "init: Crea la cuenta (falla si ya existe)",
+            "seeds: Define el PDA con seed \"config\"",
+            "bump: Anchor encuentra el bump automáticamente",
+            "payer: Quien paga el rent (el authority)",
+            "space: Bytes a reservar"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "El administrador que llama esta instrucción.",
+            "mut: Necesario porque su balance de SOL se modifica (paga rent)",
+            "Signer: Debe firmar la transacción"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "El SystemProgram es necesario para crear cuentas en Solana.",
+            "Anchor lo requiere cuando usas `init`."
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "record_checkpoint",
+      "docs": [
+        "Registra un checkpoint (evento logístico) en un envío.",
+        "La instrucción más frecuente del sistema."
+      ],
+      "discriminator": [
+        247,
+        156,
+        153,
+        92,
+        52,
+        154,
+        167,
+        219
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "docs": [
+            "Config global para obtener y actualizar el siguiente checkpoint_id"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "shipment",
+          "docs": [
+            "El envío al que pertenece este checkpoint.",
+            "mut porque incrementamos checkpoint_count"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  105,
+                  112,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "shipment_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "checkpoint",
+          "docs": [
+            "El nuevo checkpoint que se crea"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  104,
+                  101,
+                  99,
+                  107,
+                  112,
+                  111,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "checkpoint_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor",
+          "docs": [
+            "La cuenta Actor del que registra el checkpoint"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "actor_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor_wallet"
+        },
+        {
+          "name": "signer_wallet",
+          "docs": [
+            "La wallet que firma y paga el rent."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "shipment_id",
+          "type": "u64"
+        },
+        {
+          "name": "checkpoint_id",
+          "type": "u64"
+        },
+        {
+          "name": "location",
+          "type": "string"
+        },
+        {
+          "name": "checkpoint_type",
+          "type": {
+            "defined": {
+              "name": "CheckpointType"
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "type": "string"
+        },
+        {
+          "name": "temperature",
+          "type": "i16"
+        },
+        {
+          "name": "humidity",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "register_actor",
+      "docs": [
+        "Registra un nuevo actor. Solo el authority (admin) puede llamar esto.",
+        "actor_wallet: la Pubkey de la wallet del actor a registrar."
+      ],
+      "discriminator": [
+        113,
+        25,
+        196,
+        156,
+        92,
+        79,
+        15,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "docs": [
+            "Config global — verificamos que quien firma sea el authority"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor",
+          "docs": [
+            "La cuenta Actor que se crea para actor_wallet"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "actor_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "El admin que registra al actor. Debe ser el authority del programa."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "actor_wallet",
+          "type": "pubkey"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": {
+            "defined": {
+              "name": "ActorRole"
+            }
+          }
+        },
+        {
+          "name": "location",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "report_incident",
+      "docs": [
+        "Reporta una incidencia en un envío activo."
+      ],
+      "discriminator": [
+        126,
+        5,
+        154,
+        89,
+        39,
+        235,
+        130,
+        56
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "shipment",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  105,
+                  112,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "shipment_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "incident",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  105,
+                  110,
+                  99,
+                  105,
+                  100,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "incident_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "reporter_actor",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reporter_actor_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "reporter_actor_wallet",
+          "writable": true
+        },
+        {
+          "name": "signer_wallet",
+          "docs": [
+            "La wallet que firma y paga el rent."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "shipment_id",
+          "type": "u64"
+        },
+        {
+          "name": "incident_id",
+          "type": "u64"
+        },
+        {
+          "name": "incident_type",
+          "type": {
+            "defined": {
+              "name": "IncidentType"
+            }
+          }
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "resolve_incident",
+      "docs": [
+        "Marca una incidencia como resuelta."
+      ],
+      "discriminator": [
+        135,
+        2,
+        35,
+        55,
+        210,
+        7,
+        235,
+        170
+      ],
+      "accounts": [
+        {
+          "name": "incident",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  105,
+                  110,
+                  99,
+                  105,
+                  100,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "incident_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "resolver_wallet",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "incident_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "transfer_authority",
+      "docs": [
+        "Transfiere la administración del programa a una nueva wallet.",
+        "IRREVERSIBLE si se pierde acceso a la nueva wallet."
+      ],
+      "discriminator": [
+        48,
+        169,
+        76,
+        72,
+        229,
+        180,
+        55,
+        161
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "current_authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_authority",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_actor_status",
+      "docs": [
+        "Desactiva o reactiva un actor. Solo el authority puede llamar esto."
+      ],
+      "discriminator": [
+        9,
+        195,
+        182,
+        235,
+        29,
+        215,
+        144,
+        54
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "actor_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "actor_wallet",
+          "type": "pubkey"
+        },
+        {
+          "name": "is_active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "update_shipment_status",
+      "docs": [
+        "Actualiza manualmente el estado de un envío."
+      ],
+      "discriminator": [
+        1,
+        153,
+        158,
+        123,
+        14,
+        134,
+        60,
+        44
+      ],
+      "accounts": [
+        {
+          "name": "shipment",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  105,
+                  112,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "shipment_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "actor_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "actor_wallet",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "shipment_id",
+          "type": "u64"
+        },
+        {
+          "name": "new_status",
+          "type": {
+            "defined": {
+              "name": "ShipmentStatus"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Actor",
+      "discriminator": [
+        46,
+        77,
+        47,
+        204,
+        204,
+        54,
+        34,
+        88
+      ]
+    },
+    {
+      "name": "Checkpoint",
+      "discriminator": [
+        199,
+        62,
+        186,
+        186,
+        98,
+        119,
+        211,
+        139
+      ]
+    },
+    {
+      "name": "Incident",
+      "discriminator": [
+        144,
+        81,
+        144,
+        130,
+        200,
+        193,
+        26,
+        111
+      ]
+    },
+    {
+      "name": "ProgramConfig",
+      "discriminator": [
+        196,
+        210,
+        90,
+        231,
+        144,
+        149,
+        140,
+        63
+      ]
+    },
+    {
+      "name": "Shipment",
+      "discriminator": [
+        3,
+        65,
+        195,
+        72,
+        154,
+        63,
+        211,
+        213
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "ActorRegistered",
+      "discriminator": [
+        192,
+        208,
+        105,
+        215,
+        222,
+        240,
+        70,
+        126
+      ]
+    },
+    {
+      "name": "ActorStatusChanged",
+      "discriminator": [
+        88,
+        154,
+        225,
+        113,
+        75,
+        67,
+        78,
+        213
+      ]
+    },
+    {
+      "name": "AuthorityTransferred",
+      "discriminator": [
+        245,
+        109,
+        179,
+        54,
+        135,
+        92,
+        22,
+        64
+      ]
+    },
+    {
+      "name": "CheckpointRecorded",
+      "discriminator": [
+        157,
+        192,
+        91,
+        196,
+        149,
+        33,
+        47,
+        247
+      ]
+    },
+    {
+      "name": "DeliveryConfirmed",
+      "discriminator": [
+        225,
+        181,
+        249,
+        139,
+        185,
+        125,
+        219,
+        154
+      ]
+    },
+    {
+      "name": "IncidentReported",
+      "discriminator": [
+        105,
+        191,
+        58,
+        193,
+        50,
+        86,
+        61,
+        103
+      ]
+    },
+    {
+      "name": "IncidentResolved",
+      "discriminator": [
+        177,
+        41,
+        241,
+        30,
+        24,
+        232,
+        230,
+        37
+      ]
+    },
+    {
+      "name": "ShipmentCancelled",
+      "discriminator": [
+        203,
+        222,
+        158,
+        44,
+        11,
+        88,
+        233,
+        28
+      ]
+    },
+    {
+      "name": "ShipmentCreated",
+      "discriminator": [
+        208,
+        238,
+        202,
+        187,
+        110,
+        165,
+        208,
+        89
+      ]
+    },
+    {
+      "name": "ShipmentStatusChanged",
+      "discriminator": [
+        158,
+        0,
+        247,
+        163,
+        91,
+        78,
+        5,
+        91
+      ]
+    },
+    {
+      "name": "TempViolationDetected",
+      "discriminator": [
+        114,
+        206,
+        209,
+        227,
+        229,
+        99,
+        143,
+        44
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ActorNotFound",
+      "msg": "Actor no registrado en el sistema"
+    },
+    {
+      "code": 6001,
+      "name": "NotAuthority",
+      "msg": "Solo el administrador puede realizar esta accion"
+    },
+    {
+      "code": 6002,
+      "name": "UnauthorizedActor",
+      "msg": "El actor no tiene permisos para realizar esta operacion"
+    },
+    {
+      "code": 6003,
+      "name": "ActorInactive",
+      "msg": "El actor esta inactivo o suspendido"
+    },
+    {
+      "code": 6004,
+      "name": "ShipmentNotFound",
+      "msg": "Envio no encontrado"
+    },
+    {
+      "code": 6005,
+      "name": "NotSender",
+      "msg": "Solo el remitente puede realizar esta accion"
+    },
+    {
+      "code": 6006,
+      "name": "NotRecipient",
+      "msg": "Solo el destinatario puede confirmar la entrega"
+    },
+    {
+      "code": 6007,
+      "name": "ShipmentAlreadyClosed",
+      "msg": "El envio ya esta en un estado terminal"
+    },
+    {
+      "code": 6008,
+      "name": "CannotCancel",
+      "msg": "El envio no puede cancelarse en el estado actual"
+    },
+    {
+      "code": 6009,
+      "name": "CannotRecordCheckpoint",
+      "msg": "Solo transportistas, hubs y destinatarios pueden registrar checkpoints"
+    },
+    {
+      "code": 6010,
+      "name": "CheckpointShipmentMismatch",
+      "msg": "El checkpoint no pertenece al envio indicado"
+    },
+    {
+      "code": 6011,
+      "name": "TemperatureViolation",
+      "msg": "Temperatura fuera del rango permitido para este envio"
+    },
+    {
+      "code": 6012,
+      "name": "NoColdChainRequired",
+      "msg": "Este envio no requiere control de temperatura"
+    },
+    {
+      "code": 6013,
+      "name": "InvalidName",
+      "msg": "El nombre debe tener entre 1 y 128 caracteres"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidProduct",
+      "msg": "El producto debe tener entre 1 y 64 caracteres"
+    },
+    {
+      "code": 6015,
+      "name": "InvalidLocation",
+      "msg": "La ubicacion debe tener entre 1 y 256 caracteres"
+    },
+    {
+      "code": 6016,
+      "name": "InvalidDescription",
+      "msg": "La descripcion debe tener entre 1 y 256 caracteres"
+    },
+    {
+      "code": 6017,
+      "name": "InvalidHumidity",
+      "msg": "La humedad debe estar entre 0 y 100"
+    },
+    {
+      "code": 6018,
+      "name": "IncidentAlreadyResolved",
+      "msg": "Esta incidencia ya fue resuelta"
+    },
+    {
+      "code": 6019,
+      "name": "NotIncidentReporter",
+      "msg": "Solo el reportador de la incidencia puede resolverla"
+    }
+  ],
+  "types": [
+    {
+      "name": "Actor",
+      "docs": [
+        "Representa a un participante registrado en el sistema",
+        "Cada wallet tiene máximo UN Actor account"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "docs": [
+              "Dirección pública de la wallet del actor"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "docs": [
+              "Nombre o empresa del actor (máx 128 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "docs": [
+              "Rol asignado al actor"
+            ],
+            "type": {
+              "defined": {
+                "name": "ActorRole"
+              }
+            }
+          },
+          {
+            "name": "location",
+            "docs": [
+              "Ubicación física o código de hub (máx 256 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "is_active",
+            "docs": [
+              "Si está activo o fue suspendido"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "created_at",
+            "docs": [
+              "Timestamp Unix de cuando se registró"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "shipments_created",
+            "docs": [
+              "Contadores para estadísticas del actor"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "checkpoints_recorded",
+            "type": "u32"
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "Bump seed del PDA"
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ActorRegistered",
+      "docs": [
+        "Emitido cuando un actor se registra en el sistema"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "type": "string"
+          },
+          {
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ActorRole",
+      "docs": [
+        "Rol de cada actor participante en la cadena logística"
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Sender"
+          },
+          {
+            "name": "Carrier"
+          },
+          {
+            "name": "Hub"
+          },
+          {
+            "name": "Recipient"
+          },
+          {
+            "name": "Inspector"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ActorStatusChanged",
+      "docs": [
+        "Emitido cuando se cambia el estado de un actor"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "pubkey"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          },
+          {
+            "name": "changed_by",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AuthorityTransferred",
+      "docs": [
+        "Emitido cuando se transfiere la autoridad del programa"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "old_authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "new_authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Checkpoint",
+      "docs": [
+        "Registra un evento puntual en el ciclo de vida del envío",
+        "Cada checkpoint es inmutable una vez creado"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "docs": [
+              "ID único del checkpoint"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "shipment_id",
+            "docs": [
+              "ID del envío al que pertenece"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "actor",
+            "docs": [
+              "Wallet del actor que registró este checkpoint"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "location",
+            "docs": [
+              "Ubicación física donde ocurrió el evento (máx 256 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "checkpoint_type",
+            "docs": [
+              "Tipo de evento"
+            ],
+            "type": {
+              "defined": {
+                "name": "CheckpointType"
+              }
+            }
+          },
+          {
+            "name": "timestamp",
+            "docs": [
+              "Timestamp del evento (del reloj on-chain de Solana)"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "metadata",
+            "docs": [
+              "Datos adicionales en formato JSON (máx 512 chars)",
+              "Ejemplo: {\"operator\": \"hub_01\", \"notes\": \"Good condition\"}"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "temperature",
+            "docs": [
+              "Temperatura en Celsius * 10 (permite un decimal)",
+              "Ejemplo: 42 = 4.2°C, -50 = -5.0°C",
+              "i16: rango -3276.8 a 3276.7, suficiente para temperatura"
+            ],
+            "type": "i16"
+          },
+          {
+            "name": "humidity",
+            "docs": [
+              "Humedad relativa en porcentaje (0-100)"
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "Bump seed del PDA"
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CheckpointRecorded",
+      "docs": [
+        "Emitido cuando se registra un nuevo checkpoint"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "checkpoint_id",
+            "type": "u64"
+          },
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "name": "checkpoint_type",
+            "docs": [
+              "Usamos String para el tipo para facilitar lectura en frontend"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "actor",
+            "type": "pubkey"
+          },
+          {
+            "name": "temperature",
+            "docs": [
+              "Temperatura / 10.0 para mostrar decimales en el evento"
+            ],
+            "type": "i16"
+          },
+          {
+            "name": "humidity",
+            "type": "u8"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CheckpointType",
+      "docs": [
+        "Tipo de evento registrado en un checkpoint"
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Pickup"
+          },
+          {
+            "name": "HubIn"
+          },
+          {
+            "name": "HubOut"
+          },
+          {
+            "name": "Transit"
+          },
+          {
+            "name": "DeliveryAttempt"
+          },
+          {
+            "name": "Delivered"
+          },
+          {
+            "name": "SensorData"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DeliveryConfirmed",
+      "docs": [
+        "Emitido cuando el destinatario confirma la entrega"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "recipient",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Incident",
+      "docs": [
+        "Registra una incidencia o problema detectado en el envío"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "docs": [
+              "ID único de la incidencia"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "shipment_id",
+            "docs": [
+              "ID del envío afectado"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "incident_type",
+            "docs": [
+              "Tipo de incidencia"
+            ],
+            "type": {
+              "defined": {
+                "name": "IncidentType"
+              }
+            }
+          },
+          {
+            "name": "reporter",
+            "docs": [
+              "Wallet del actor que reportó la incidencia"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "description",
+            "docs": [
+              "Descripción detallada (máx 256 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "docs": [
+              "Timestamp del reporte"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "resolved",
+            "docs": [
+              "Si la incidencia fue resuelta"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "Bump seed del PDA"
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IncidentReported",
+      "docs": [
+        "Emitido cuando se reporta una incidencia"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "incident_id",
+            "type": "u64"
+          },
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "incident_type",
+            "type": "string"
+          },
+          {
+            "name": "reporter",
+            "type": "pubkey"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IncidentResolved",
+      "docs": [
+        "Emitido cuando se resuelve una incidencia"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "incident_id",
+            "type": "u64"
+          },
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "resolved_by",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IncidentType",
+      "docs": [
+        "Tipo de incidencia que puede ocurrir durante el transporte"
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Delay"
+          },
+          {
+            "name": "Damage"
+          },
+          {
+            "name": "Lost"
+          },
+          {
+            "name": "TempViolation"
+          },
+          {
+            "name": "Unauthorized"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProgramConfig",
+      "docs": [
+        "Configuración global del programa",
+        "Solo existe UNA instancia de esta cuenta (PDA del programa)"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "docs": [
+              "Wallet del administrador que puede cambiar configuraciones"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "next_shipment_id",
+            "docs": [
+              "Contador para generar IDs únicos de envíos"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "next_checkpoint_id",
+            "docs": [
+              "Contador para generar IDs únicos de checkpoints"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "next_incident_id",
+            "docs": [
+              "Contador para generar IDs únicos de incidencias"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "total_shipments",
+            "docs": [
+              "Estadísticas globales del sistema"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "total_checkpoints",
+            "type": "u64"
+          },
+          {
+            "name": "total_incidents",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "Bump seed del PDA (guardado para verificaciones futuras)"
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Shipment",
+      "docs": [
+        "Representa un envío (paquete, contenedor, etc.)",
+        "Es la entidad central del sistema de trazabilidad"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "docs": [
+              "ID numérico único (generado por ProgramConfig)"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "sender",
+            "docs": [
+              "Wallet del remitente que creó el envío"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient",
+            "docs": [
+              "Wallet del destinatario final"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "product",
+            "docs": [
+              "Descripción del producto (máx 64 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "origin",
+            "docs": [
+              "Ciudad/dirección de origen (máx 128 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "destination",
+            "docs": [
+              "Ciudad/dirección destino (máx 128 chars)"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "date_created",
+            "docs": [
+              "Timestamp de creación"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "date_delivered",
+            "docs": [
+              "Timestamp de entrega (0 si no entregado aún)"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "status",
+            "docs": [
+              "Estado actual del envío"
+            ],
+            "type": {
+              "defined": {
+                "name": "ShipmentStatus"
+              }
+            }
+          },
+          {
+            "name": "checkpoint_count",
+            "docs": [
+              "Número de checkpoints registrados"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "incident_count",
+            "docs": [
+              "Número de incidencias reportadas"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "requires_cold_chain",
+            "docs": [
+              "Si requiere control de temperatura (cadena de frío)"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "max_temperature",
+            "docs": [
+              "Temperatura máxima permitida (Celsius * 10)",
+              "Ejemplo: 45 = 4.5°C. Usamos i16 para decimales sin floats."
+            ],
+            "type": "i16"
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "Bump seed del PDA"
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ShipmentCancelled",
+      "docs": [
+        "Emitido cuando se cancela un envío"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "cancelled_by",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ShipmentCreated",
+      "docs": [
+        "Emitido cuando se crea un nuevo envío"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "sender",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient",
+            "type": "pubkey"
+          },
+          {
+            "name": "product",
+            "type": "string"
+          },
+          {
+            "name": "origin",
+            "type": "string"
+          },
+          {
+            "name": "destination",
+            "type": "string"
+          },
+          {
+            "name": "requires_cold_chain",
+            "type": "bool"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ShipmentStatus",
+      "docs": [
+        "Estado actual de un envío a lo largo de su ciclo de vida"
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Created"
+          },
+          {
+            "name": "InTransit"
+          },
+          {
+            "name": "AtHub"
+          },
+          {
+            "name": "OutForDelivery"
+          },
+          {
+            "name": "Delivered"
+          },
+          {
+            "name": "Returned"
+          },
+          {
+            "name": "Cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ShipmentStatusChanged",
+      "docs": [
+        "Emitido cuando cambia el estado de un envío"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "new_status",
+            "type": "string"
+          },
+          {
+            "name": "actor",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TempViolationDetected",
+      "docs": [
+        "Emitido automáticamente cuando se detecta violación de temperatura",
+        "Esto es clave para sistemas de alertas automatizadas"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "shipment_id",
+            "type": "u64"
+          },
+          {
+            "name": "checkpoint_id",
+            "type": "u64"
+          },
+          {
+            "name": "temperature",
+            "docs": [
+              "Temperatura registrada (real * 10)"
+            ],
+            "type": "i16"
+          },
+          {
+            "name": "max_allowed",
+            "docs": [
+              "Temperatura máxima permitida (real * 10)"
+            ],
+            "type": "i16"
+          },
+          {
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "name": "actor",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ]
+}
